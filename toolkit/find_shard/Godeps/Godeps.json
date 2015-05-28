@@ -1,0 +1,15 @@
+{
+	"ImportPath": "go-test/toolkit/find_shard",
+	"GoVersion": "go1.4.2",
+	"Deps": [
+		{
+			"ImportPath": "github.com/c4pt0r/cfg",
+			"Rev": "429e6985f0b07bceaa33b57ee612fbca4797a9a6"
+		},
+		{
+			"ImportPath": "github.com/go-sql-driver/mysql",
+			"Comment": "v1.2-97-g0cc29e9",
+			"Rev": "0cc29e9fe8e25c2c58cf47bcab566e029bbaa88b"
+		}
+	]
+}
