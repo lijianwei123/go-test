@@ -180,7 +180,7 @@ func main() {
 	for {
 		usage := 
 `input select sql
-like  select id from pay_order where order_no = '386920340142344'`
+like  select id from test where num = '386920340142344'`
 		
 		fmt.Println(usage)
 		
