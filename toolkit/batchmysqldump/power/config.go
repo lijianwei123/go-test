@@ -4,7 +4,6 @@ import (
 	_ "fmt"
 )
 
-
 var defaultConfig = DbConfig{"127.0.0.1", "root", 3306, "test", ""}
 
 func GetDefaultDbConfig() DbConfig {
@@ -19,12 +18,8 @@ type DbConfig struct {
 	table    string
 }
 
-
 type AlarmInfo struct {
-	Title string
-	Type  string
+	Title   string
+	Type    string
 	Content string
 }
-
-
-
