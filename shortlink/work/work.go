@@ -1,7 +1,7 @@
 package work
 
 import (
-	"fmt"
+	_ "fmt"
 )
 
 type Shortener struct {
@@ -18,17 +18,15 @@ func (shortPtr *Shortener) IsUrl() bool {
 
 //生成短连接
 func (shortPtr *Shortener) GenShortUrl() string {
-	
+	return ""
 }
 
 //保存短连接《-》长连接
 func (shortPtr *Shortener) SaveShortUrl(shortUrl string) bool {
-	longUrl := shortP.longUrl
+	//_ := shortPtr.longUrl
 	//保存
+	return true
 }
-
-
-
 
 type ShortenerQuery struct {
 }
@@ -39,7 +37,5 @@ func NewShortenerQuery() *ShortenerQuery {
 
 //查询短连接
 func (queryPtr *Shortener) GetLongUrlByShortUrl() string {
+	return ""
 }
-
-
-
