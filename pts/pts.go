@@ -20,7 +20,7 @@ func main() {
 
 	chans := make(chan bool, reqCount)
 
-	start := time.Now().Unix()
+	start := time.Now().UnixNano() / 1e6
 
 	for c := 0; c < reqConcurrent; c++ {
 		go func() {
@@ -37,7 +37,6 @@ func main() {
 		}()
 	}
 
-
 	for n := 0; n < reqCount; n++ {
 		select {
 		case <-chans:
@@ -45,7 +44,7 @@ func main() {
 		}
 	}
 
-	elasped := time.Now().Unix() - start
-	fmt.Printf("qps: %d", reqCount/int(elasped))
-
+	elaspedMs := time.Now().UnixNano()/1e6 - start
+	fmt.Printf("elasped(ms): %d\n", elaspedMs)
+	fmt.Printf("qps: %f", float64(reqCount)/float64(elaspedMs)*1000)
 }
