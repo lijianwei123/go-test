@@ -1,25 +1,25 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"reflect"
 	"time"
 )
 
 func main() {
-	fmt.Println("fuck you?")
+	var reqCount, reqConcurrent int
+	var url string
 
-	reqConcurrent := 100
-	reqCount := 1000
+	flag.IntVar(&reqCount, "n", 1, "-n requests")
+	flag.IntVar(&reqConcurrent, "c", 1, "-c concurrency")
+	flag.StringVar(&url, "url", "http://www.baidu.com", "-url url")
+	flag.Parse()
+	fmt.Printf("reqCount: %d, reqConcurrent: %d, url: %s\n", reqCount, reqConcurrent, url)
+
 	times := reqCount / reqConcurrent
-	url := "http://www.baidu.com"
-
-	fmt.Println(reflect.TypeOf(times))
-
 	chans := make(chan bool, reqCount)
-
 	start := time.Now().UnixNano() / 1e6
 
 	for c := 0; c < reqConcurrent; c++ {
