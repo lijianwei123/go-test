@@ -40,11 +40,13 @@ func main() {
 	for n := 0; n < reqCount; n++ {
 		select {
 		case <-chans:
-			fmt.Println(n)
+			if n%100 == 0 {
+				fmt.Println(n)
+			}
 		}
 	}
 
 	elaspedMs := time.Now().UnixNano()/1e6 - start
 	fmt.Printf("elasped(ms): %d\n", elaspedMs)
-	fmt.Printf("qps: %f", float64(reqCount)/float64(elaspedMs)*1000)
+	fmt.Printf("qps: %f\n", float64(reqCount)/float64(elaspedMs)*1000)
 }
